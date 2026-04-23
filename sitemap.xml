@@ -4,25 +4,25 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://catchsera.com/</loc>
+    <loc>https://restaurant.catchsera.com/</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://catchsera.com/#how-it-works</loc>
+    <loc>https://restaurant.catchsera.com/#how-it-works</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://catchsera.com/#features</loc>
+    <loc>https://restaurant.catchsera.com/#features</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://catchsera.com/#pricing</loc>
+    <loc>https://restaurant.catchsera.com/#pricing</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
