@@ -847,7 +847,7 @@ function handleSignup(e) {
     body: JSON.stringify({ email, source: 'landing-page', date: new Date().toISOString() })
   }).catch(() => {}); // fire and forget
   document.getElementById('signup-email').value = '';
-  showToast('🎉 You're in! Check your inbox shortly.');
+  showToast("🎉 You're in! Check your inbox shortly.");
 }
 
 // ——— TOAST ———
