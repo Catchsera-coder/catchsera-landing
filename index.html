@@ -868,7 +868,11 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.05, rootMargin: '100px 0px 100px 0px' });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-in').forEach(el => {
+  observer.observe(el);
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight + 100 && r.bottom > 0) el.classList.add('visible');
+});
 
 // ——— SMOOTH STAT COUNTERS ———
 function animateCounters() {
@@ -890,7 +894,11 @@ const statsObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.3 });
 const statsSection = document.querySelector('.stats-section');
-if (statsSection) statsObserver.observe(statsSection);
+if (statsSection) {
+  statsObserver.observe(statsSection);
+  const sr = statsSection.getBoundingClientRect();
+  if (sr.top < window.innerHeight && sr.bottom > 0) animateCounters();
+}
 
 // ——— CHAT ANIMATION ———
 let msgIndex = 0;
