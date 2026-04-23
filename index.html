@@ -877,25 +877,15 @@ function handleContact(e) {
     date: new Date().toISOString()
   };
   // Send via Formspree to Contact@catchsera.com
-  fetch('https://formspree.io/f/xnnvgzra', {
+  // Send via n8n webhook → email to Contact@catchsera.com
+  fetch('https://n8n.catchsera.com/webhook/landing-contact', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
-  }).then(r => {
-    if (r.ok) {
-      showToast("✅ Request sent! We'll contact you within 24 hours.");
-      form.reset();
-    } else {
-      // Fallback: also try n8n webhook
-      return fetch('https://n8n.catchsera.com/webhook/landing-contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }).then(() => {
-        showToast("✅ Request sent! We'll contact you within 24 hours.");
-        form.reset();
-      });
-    }
+  }).then(() => {
+    showToast("✅ Request sent! We'll contact you within 24 hours.");
+    form.reset();
   }).catch(() => {
     showToast("✅ Request sent! We'll be in touch shortly.");
     form.reset();
