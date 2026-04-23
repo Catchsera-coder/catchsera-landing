@@ -220,13 +220,15 @@ nav.scrolled{background:rgba(10,15,26,.92);backdrop-filter:blur(20px);border-bot
 .pricing-desc{font-size:14px;color:var(--text2);margin:16px 0 24px;line-height:1.6}
 .pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
 .pricing-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text2)}
-.pricing-features li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px}
+.pricing-features li::before{content:'';display:none}
 .pricing-features li.off{color:var(--text3)}
 .pricing-features li.off::before{content:'—';color:var(--text3)}
 .pricing-cta{width:100%}
 
 /* FAQ */
-.faq-section{padding:var(--section-pad);background:var(--bg)}
+.faq-section{padd.check{color:var(--accent);font-weight:700;flex-shrink:0}
+.pricing-card .na{color:var(--text3)}
+ing:var(--section-pad);background:var(--bg)}
 .faq-list{max-width:760px;margin:48px auto 0;display:flex;flex-direction:column;gap:12px}
 .faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:.3s}
 .faq-item.open{border-color:rgba(16,185,129,.25)}
