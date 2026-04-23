@@ -867,27 +867,35 @@ function handleContact(e) {
   const website = document.getElementById('cf_website').value.trim();
   const volume = document.getElementById('cf_volume').value;
   const optin = document.getElementById('cf_optin').checked;
-  if (!name || !phone) return;
+  if (!name || !phone) { showToast('Please enter your name and phone number.'); return; }
   btn.disabled = true;
   btn.textContent = 'Sending...';
   const payload = {
-    name, phone, email, website, call_volume: volume || 'Not specified',
+    name, phone, email, website,
+    call_volume: volume || 'Not specified',
     optin: optin ? 'Yes' : 'No',
     source: 'landing-page-contact-form',
     date: new Date().toISOString()
   };
-  // Send via Formspree to Contact@catchsera.com
-  // Send via n8n webhook → email to Contact@catchsera.com
+  // Primary: send to n8n webhook → forwards to Contact@catchsera.com
   fetch('https://n8n.catchsera.com/webhook/landing-contact', {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   }).then(() => {
-    showToast("✅ Request sent! We'll contact you within 24 hours.");
+    showToast("Request sent! We'll contact you within 24 hours.");
     form.reset();
   }).catch(() => {
-    showToast("✅ Request sent! We'll be in touch shortly.");
+    // Fallback: open mailto to guarantee delivery
+    const subject = encodeURIComponent('Demo Request — ' + name);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\nPhone: ' + phone +
+      '\nEmail: ' + (email || 'N/A') + '\nBusiness: ' + (website || 'N/A') +
+      '\nCall Volume: ' + (volume || 'N/A') + '\nOpt-in: ' + (optin ? 'Yes' : 'No')
+    );
+    window.location.href = 'mailto:Contact@catchsera.com?subject=' + subject + '&body=' + body;
+    showToast("Opening your email to send your request...");
     form.reset();
   }).finally(() => {
     btn.disabled = false;
