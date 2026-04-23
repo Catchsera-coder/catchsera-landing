@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="description" content="Catchsera gives your restaurant an AI voice agent that takes phone orders 24/7 — no staff needed. Works with pizza shops, cafes, takeaways. Try free.">
+  <meta name="description" content="Sera by Catchsera answers your restaurant phone orders during rush hour — no missed calls, no missed orders. Serving Massachusetts, Boston & USA. Book a free 7-day demo.">
   <meta name="keywords" content="restaurant AI voice agent, AI phone ordering, restaurant ordering system, pizza shop AI, food business automation, automated phone orders, restaurant technology">
   <meta name="author" content="Catchsera">
   <meta name="robots" content="index, follow">
@@ -282,6 +282,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
 .fade-in.visible{opacity:1!important;transform:translateY(0)!important}
 
 /* NOTIFICATION TOAST */
+.theme-toggle{background:none;border:1px solid var(--border);border-radius:8px;padding:5px 9px;cursor:pointer;font-size:15px;color:var(--text1);line-height:1;transition:.2s}
+.theme-toggle:hover{background:var(--surface)}
+body.light-mode{--bg:#f8fafc;--bg2:#f1f5f9;--bg3:#e2e8f0;--surface:#fff;--surface2:#f0f4f8;--text1:#0f172a;--text2:#475569;--text3:#94a3b8;--border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.18)}
+body.light-mode nav{background:rgba(248,250,252,0.95);border-bottom:1px solid rgba(0,0,0,0.08)}
 .toast{position:fixed;bottom:24px;right:24px;background:var(--surface);border:1px solid rgba(16,185,129,.3);border-radius:var(--radius);padding:14px 20px;display:flex;align-items:center;gap:10px;font-size:14px;box-shadow:0 12px 32px rgba(0,0,0,.4);z-index:1000;transform:translateY(100px);opacity:0;transition:.4s}
 .toast.show{transform:translateY(0);opacity:1}
 .toast-icon{color:var(--accent);font-size:18px}
@@ -329,9 +333,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
-      <a href="https://orders.catchsera.com" class="btn btn-outline btn-sm">Sign In</a>
-      <a href="#get-started" class="btn btn-primary btn-sm">Start Free Trial</a>
+      <a href="https://orders.catchsera.com" class="btn btn-outline btn-sm" title="Restaurant order dashboard">Dashboard</a>
+      <a href="#get-started" class="btn btn-primary btn-sm">Book Free Demo</a>
     </div>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Light/Dark mode">🌙</button>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -346,7 +351,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
   <a href="#pricing" onclick="toggleMenu()">Pricing</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="https://orders.catchsera.com" onclick="toggleMenu()">Sign In</a>
-  <a href="#get-started" class="btn btn-primary" onclick="toggleMenu()">Start Free Trial</a>
+  <a href="#get-started" class="btn btn-primary" onclick="toggleMenu()">Book Free Demo</a>
 </div>
 
 <!-- HERO -->
@@ -359,24 +364,24 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
     <div class="hero-left">
       <div class="hero-eyebrow">
         <span class="hero-eyebrow-dot"></span>
-        AI-Powered · Available 24/7 · No Hardware
+        AI Voice Ordering · Massachusetts & USA · No App Needed
       </div>
       <h1 class="hero-title">
-        Your Restaurant,<br>
-        <span class="line2">Always Answering.</span><br>
-        <span class="line3">Never Miss an Order.</span>
+        Stop Missing Calls<br>
+        <span class="line2">During Rush Hour.</span><br>
+        <span class="line3">Sera answers every order.</span>
       </h1>
       <p class="hero-desc">
-        Catchsera's AI voice agent answers your phone, takes orders in natural conversation, and sends them straight to your kitchen — even when you're busy, closed, or understaffed.
+        When your phone rings and your hands are full, Sera picks up. She takes the complete order by voice and sends it straight to your dashboard — so your team stays focused during busy rushes.
       </p>
       <div class="hero-actions">
-        <a href="#get-started" class="btn btn-primary btn-lg">🚀 Start Free — 14 Days</a>
+        <a href="#get-started" class="btn btn-primary btn-lg">🚀 Book a Free Demo</a>
         <a href="#how-it-works" class="btn btn-outline btn-lg">See How It Works</a>
       </div>
       <div class="hero-trust">
         <div class="hero-trust-item">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          No credit card needed
+          Credit card required · 7-day demo
         </div>
         <div class="hero-trust-item">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -384,7 +389,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
         </div>
         <div class="hero-trust-item">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          Works with any phone number
+          Hardware provided if needed
         </div>
       </div>
     </div>
@@ -400,12 +405,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
         <div class="phone-top">
           <div class="phone-top-icon">🤖</div>
           <div class="phone-top-info">
-            <div class="phone-top-name">Sara — AI Order Agent</div>
+            <div class="phone-top-name">Sera — AI Order Agent</div>
             <div class="phone-top-status">Live Call in Progress</div>
           </div>
         </div>
         <div class="chat-messages">
-          <div class="msg msg-ai" style="animation-delay:.1s">Hello! Thanks for calling Tony's Pizza. What would you like to order today? 🍕<div class="msg-time">12:31 PM</div></div>
+          <div class="msg msg-ai" style="animation-delay:.1s">Hello! Thanks for calling Riverside Pizza. What would you like to order today? 🍕<div class="msg-time">12:31 PM</div></div>
           <div class="msg msg-user" style="animation-delay:.3s">Hi, I want a large pepperoni and garlic bread<div class="msg-time">12:31 PM</div></div>
           <div class="msg msg-ai" style="animation-delay:.5s">Perfect! Large pepperoni + garlic bread. Would you like drinks with that?<div class="msg-time">12:32 PM</div></div>
           <div class="msg msg-user" style="animation-delay:.7s">Yes, 2 Cokes please<div class="msg-time">12:32 PM</div></div>
@@ -431,15 +436,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
 <!-- LOGOS BAR -->
 <div class="logos-bar">
   <div class="logos-inner">
-    <span class="logos-label">Trusted by food businesses in the UAE, US & UK</span>
+    <span class="logos-label">Trusted by food businesses in the Massachusetts, Boston & USA</span>
     <div class="logos-list">
       <span>🍕 Pizza Shops</span>
       <span>🍔 Burger Joints</span>
       <span>🥙 Shawarma Stands</span>
       <span>☕ Cafes</span>
       <span>🍜 Noodle Houses</span>
-      <span>🍱 Delivery Kitchens</span>
-      <span>🥗 Salad Bars</span>
+      <span>🍱 Ghost Kitchens</span>
+      <span>🥗 Sub Shops</span>
     </div>
   </div>
 </div>
@@ -454,13 +459,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
         <div class="step-num">1</div>
         <div class="step-icon">📞</div>
         <h3 class="step-title">Customer Calls Your Number</h3>
-        <p class="step-desc">Your existing phone number. No new hardware, no SIM card. Sara AI picks up every call within 2 rings, day or night.</p>
+        <p class="step-desc">Your existing phone number. No new hardware, no SIM card. Sera AI picks up every call within 2 rings, day or night.</p>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
         <div class="step-icon">🗣️</div>
         <h3 class="step-title">AI Takes the Full Order</h3>
-        <p class="step-desc">Sara has a natural conversation — asks about items, sizes, extras, allergies, and delivery or pickup. Just like a real staff member.</p>
+        <p class="step-desc">Sera has a natural conversation — asks about items, sizes, extras, allergies, and delivery or pickup. Just like a real staff member.</p>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
@@ -484,8 +489,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
       <div class="feature-card">
         <div class="feature-icon">🤖</div>
         <div class="feature-body">
-          <h3 class="feature-title">Natural Voice AI (Sara)</h3>
-          <p class="feature-desc">Sara doesn't sound like a robot. She converses naturally, handles modifications, and manages complex multi-item orders with ease — in English and Arabic.</p>
+          <h3 class="feature-title">Natural Voice AI (Sera)</h3>
+          <p class="feature-desc">Sera doesn't sound like a robot. She converses naturally, handles modifications, and manages complex multi-item orders with ease — in English and Arabic.</p>
         </div>
       </div>
       <div class="feature-card">
@@ -527,7 +532,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
         <div class="feature-icon">🌙</div>
         <div class="feature-body">
           <h3 class="feature-title">24/7 — Including Holidays</h3>
-          <p class="feature-desc">Sara never sleeps, never calls in sick, and never misses a call. She covers your busiest Friday nights and your quietest Sunday mornings equally well.</p>
+          <p class="feature-desc">Sera never sleeps, never calls in sick, and never misses a call. She covers your busiest Friday nights and your quietest Sunday mornings equally well.</p>
         </div>
       </div>
       <div class="feature-card">
@@ -565,6 +570,45 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
   </div>
 </section>
 <!-- TESTIMONIALS -->
+
+<!-- ROI CALCULATOR -->
+<section style="padding:80px 20px;background:var(--bg2)">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px">
+      <span class="section-tag">ROI Calculator</span>
+      <h2 class="section-title">How Much Are Missed Calls Costing You?</h2>
+      <p class="section-sub" style="margin:0 auto">See what Sera can recover for your restaurant every month.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:900px;margin:0 auto">
+      <div style="background:var(--surface);border:1px solid var(--border2);border-radius:20px;padding:36px">
+        <div style="margin-bottom:24px">
+          <label style="display:block;margin-bottom:8px;color:var(--text2);font-size:0.9rem;font-weight:600">Missed calls per day</label>
+          <input type="range" id="roiCalls" min="1" max="50" value="10" oninput="calcROI()" style="width:100%;accent-color:#10b981">
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text3);margin-top:4px"><span>1</span><span id="roiCallsVal" style="color:#10b981;font-weight:700">10 calls</span><span>50</span></div>
+        </div>
+        <div style="margin-bottom:24px">
+          <label style="display:block;margin-bottom:8px;color:var(--text2);font-size:0.9rem;font-weight:600">Average order value</label>
+          <input type="range" id="roiAOV" min="10" max="100" value="30" oninput="calcROI()" style="width:100%;accent-color:#10b981">
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text3);margin-top:4px"><span>$10</span><span id="roiAOVVal" style="color:#10b981;font-weight:700">$30</span><span>$100</span></div>
+        </div>
+        <div>
+          <label style="display:block;margin-bottom:8px;color:var(--text2);font-size:0.9rem;font-weight:600">Working days per month</label>
+          <input type="range" id="roiDays" min="20" max="31" value="26" oninput="calcROI()" style="width:100%;accent-color:#10b981">
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text3);margin-top:4px"><span>20</span><span id="roiDaysVal" style="color:#10b981;font-weight:700">26 days</span><span>31</span></div>
+        </div>
+      </div>
+      <div style="text-align:center">
+        <p style="color:var(--text2);margin-bottom:6px;font-size:0.9rem">Revenue lost monthly from missed calls</p>
+        <div id="roiLost" style="font-size:3rem;font-weight:900;color:#ef4444;line-height:1.1">$7,800</div>
+        <div style="margin:20px 0;height:2px;background:linear-gradient(90deg,#ef4444,#10b981)"></div>
+        <p style="color:var(--text2);margin-bottom:6px;font-size:0.9rem">Revenue recovered with Sera</p>
+        <div id="roiRecovered" style="font-size:3rem;font-weight:900;color:#10b981;line-height:1.1">$7,410</div>
+        <p style="color:var(--text3);font-size:0.78rem;margin-top:6px">95% capture rate assumed</p>
+        <a href="#get-started" class="btn btn-primary" style="margin-top:28px;display:inline-block">Start Recovering Revenue</a>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="testimonials-section" id="testimonials">
   <div class="container text-center">
     <span class="section-tag">Customer Stories</span>
@@ -579,7 +623,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
           <div class="testimonial-avatar">A</div>
           <div>
             <div class="testimonial-name">Ahmed Al-Rashidi</div>
-            <div class="testimonial-biz">Tony's Pizza — Dubai, UAE</div>
+            <div class="testimonial-biz">Riverside Pizza — Boston, MA</div>
           </div>
         </div>
       </div>
@@ -591,7 +635,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
           <div class="testimonial-avatar">M</div>
           <div>
             <div class="testimonial-name">Maria Santos</div>
-            <div class="testimonial-biz">Casa Burger — London, UK</div>
+            <div class="testimonial-biz">Casa Burger — New York, NY</div>
           </div>
         </div>
       </div>
@@ -603,7 +647,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
           <div class="testimonial-avatar">K</div>
           <div>
             <div class="testimonial-name">Khalid Mansoor</div>
-            <div class="testimonial-biz">Al-Sham Kitchen — Sharjah, UAE</div>
+            <div class="testimonial-biz">The Kitchen — Chicago, IL</div>
           </div>
         </div>
       </div>
@@ -613,79 +657,66 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
 
 <!-- PRICING -->
 <section class="pricing-section" id="pricing">
-  <div class="container text-center">
-    <span class="section-tag">Pricing</span>
-    <h2 class="section-title">Simple, Honest Pricing</h2>
-    <p class="section-sub" style="margin:0 auto">Start free. Upgrade as you grow. Cancel anytime — no lock-ins.</p>
-    <div class="pricing-toggle">
-      <span>Monthly</span>
-      <div class="toggle-switch" id="billingToggle" onclick="toggleBilling()" role="switch" aria-checked="false">
-        <div class="toggle-knob"></div>
-      </div>
-      <span>Annual <span class="save-badge">Save 20%</span></span>
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Pricing</span>
+      <h2 class="section-title">Simple, Honest Pricing</h2>
+      <p class="section-sub" style="margin:0 auto">Starting at $199/mo. 7-day free demo. No hidden fees. Cancel anytime.</p>
     </div>
-    <div class="pricing-grid fade-in">
-      <div class="pricing-card">
-        <div class="pricing-name">Starter</div>
-        <div class="pricing-price">
-          <div class="pricing-amount free" id="price-starter">Free</div>
-          <div class="pricing-period">14-day full trial · No card needed</div>
-        </div>
-        <p class="pricing-desc">Perfect for trying Catchsera risk-free with your restaurant.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:60px">
+      <div class="pricing-card fade-in">
+        <div class="pricing-tier">STARTER</div>
+        <div class="pricing-price"><sup>$</sup>199<span>/mo</span></div>
+        <p class="pricing-desc">For a single-location restaurant handling daily phone orders.</p>
         <ul class="pricing-features">
-          <li>AI voice agent (Sara)</li>
-          <li>Real-time order dashboard</li>
-          <li>Up to 50 orders/month</li>
-          <li>1 phone number</li>
-          <li>Email support</li>
-          <li class="off">Auto receipt printing</li>
-          <li class="off">Analytics & history</li>
-          <li class="off">Priority support</li>
+          <li><span class="check">&#10003;</span> Sera AI voice agent</li>
+          <li><span class="check">&#10003;</span> Real-time order dashboard</li>
+          <li><span class="check">&#10003;</span> Up to 200 orders/month</li>
+          <li><span class="check">&#10003;</span> 1 phone line</li>
+          <li><span class="check">&#10003;</span> English (Spanish add-on)</li>
+          <li><span class="check">&#10003;</span> Email &amp; chat support</li>
+          <li class="na">&mdash; Auto receipt printing</li>
+          <li class="na">&mdash; Live call transfer</li>
         </ul>
-        <a href="#get-started" class="btn btn-outline pricing-cta">Start Free Trial</a>
+        <a href="#get-started" class="btn btn-outline" style="display:block;text-align:center">Request Free Demo</a>
       </div>
-      <div class="pricing-card featured">
-        <div class="pricing-name">Growth</div>
-        <div class="pricing-price">
-          <div class="pricing-amount" id="price-growth"><sup>$</sup><span id="growth-num">49</span></div>
-          <div class="pricing-period" id="period-growth">per month, billed monthly</div>
-        </div>
-        <p class="pricing-desc">For active restaurants taking daily phone orders.</p>
+      <div class="pricing-card featured fade-in">
+        <div class="pricing-badge">MOST POPULAR</div>
+        <div class="pricing-tier">GROWTH</div>
+        <div class="pricing-price"><sup>$</sup>349<span>/mo</span></div>
+        <p class="pricing-desc">For busy restaurants with high call volume and full hardware setup.</p>
         <ul class="pricing-features">
-          <li>Everything in Starter</li>
-          <li>Unlimited orders</li>
-          <li>Auto receipt printing</li>
-          <li>Order history & analytics</li>
-          <li>2 staff accounts</li>
-          <li>Priority email + chat support</li>
-          <li>Custom AI menu knowledge</li>
-          <li class="off">Multi-location</li>
+          <li><span class="check">&#10003;</span> Everything in Starter</li>
+          <li><span class="check">&#10003;</span> Unlimited orders</li>
+          <li><span class="check">&#10003;</span> Multiple simultaneous calls</li>
+          <li><span class="check">&#10003;</span> Auto receipt printing</li>
+          <li><span class="check">&#10003;</span> Live call transfer</li>
+          <li><span class="check">&#10003;</span> 3 staff accounts</li>
+          <li><span class="check">&#10003;</span> Priority support</li>
+          <li><span class="check">&#10003;</span> Hardware at low cost</li>
         </ul>
-        <a href="#get-started" class="btn btn-primary pricing-cta">Start Free Trial</a>
+        <a href="#get-started" class="btn btn-primary" style="display:block;text-align:center">Request Free Demo</a>
       </div>
-      <div class="pricing-card">
-        <div class="pricing-name">Pro</div>
-        <div class="pricing-price">
-          <div class="pricing-amount" id="price-pro"><sup>$</sup><span id="pro-num">99</span></div>
-          <div class="pricing-period" id="period-pro">per month, billed monthly</div>
-        </div>
-        <p class="pricing-desc">For growing chains and multi-location food businesses.</p>
+      <div class="pricing-card fade-in">
+        <div class="pricing-tier">PRO / ENTERPRISE</div>
+        <div class="pricing-price" style="font-size:1.75rem;line-height:1.1;padding:14px 0">Contact<br>for Pricing</div>
+        <p class="pricing-desc">Multi-location chains with custom AI training and dedicated support.</p>
         <ul class="pricing-features">
-          <li>Everything in Growth</li>
-          <li>Up to 5 locations</li>
-          <li>Unlimited staff accounts</li>
-          <li>Advanced analytics</li>
-          <li>Custom integrations (POS, n8n)</li>
-          <li>Dedicated account manager</li>
-          <li>White-label option</li>
-          <li>Phone + chat support 24/7</li>
+          <li><span class="check">&#10003;</span> Everything in Growth</li>
+          <li><span class="check">&#10003;</span> 10+ locations</li>
+          <li><span class="check">&#10003;</span> Unlimited staff accounts</li>
+          <li><span class="check">&#10003;</span> Advanced analytics</li>
+          <li><span class="check">&#10003;</span> Custom menu AI training</li>
+          <li><span class="check">&#10003;</span> Dedicated account manager</li>
+          <li><span class="check">&#10003;</span> White-label option</li>
+          <li><span class="check">&#10003;</span> 24/7 phone support</li>
         </ul>
-        <a href="#get-started" class="btn btn-outline pricing-cta">Contact Sales</a>
+        <a href="#get-started" class="btn btn-outline" style="display:block;text-align:center">Contact Sales</a>
       </div>
     </div>
+    <p style="text-align:center;margin-top:28px;color:var(--text2);font-size:0.875rem">All plans include a <strong>7-day free demo</strong>. Credit card required. Full hardware (tablet + printer) available at low cost.</p>
   </div>
 </section>
-<!-- FAQ -->
 <section class="faq-section" id="faq">
   <div class="container text-center">
     <span class="section-tag">FAQ</span>
@@ -694,19 +725,19 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
     <div class="faq-list fade-in">
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">How does Catchsera work exactly?<span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">A customer calls your restaurant's phone number. Catchsera's AI (Sara) answers the call, takes the full order in natural voice conversation, confirms it with the customer, and instantly sends the order to your dashboard. Your team sees it in real time and starts preparing.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">A customer calls your restaurant's phone number. Catchsera's AI (Sera) answers the call, takes the full order in natural voice conversation, confirms it with the customer, and instantly sends the order to your dashboard. Your team sees it in real time and starts preparing.</div></div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">Do I need special hardware or equipment?<span class="faq-icon">+</span></div>
         <div class="faq-a"><div class="faq-a-inner">No. Catchsera works with your existing phone number. Your staff views orders on any device with a browser — tablet, phone, laptop, or desktop PC. For receipt printing, any USB or WiFi thermal printer works.</div></div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">What languages does Sara speak?<span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Sara currently supports English and Arabic. More languages are on the roadmap. She can also handle mixed-language conversations naturally.</div></div>
+        <div class="faq-q">What languages does Sera speak?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sera currently supports English and Arabic. More languages are on the roadmap. She can also handle mixed-language conversations naturally.</div></div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">What if a customer has a complex or unusual order?<span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Sara is trained on your specific menu and handles modifications, substitutions, allergies, and extras. For truly complex situations, she can gracefully hand off to a human staff member if you configure that option.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Sera is trained on your specific menu and handles modifications, substitutions, allergies, and extras. For truly complex situations, she can gracefully hand off to a human staff member if you configure that option.</div></div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">How long does setup take?<span class="faq-icon">+</span></div>
@@ -714,10 +745,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">Can I try it for free?<span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes! Every new account gets a 14-day free trial with full access to all Growth plan features. No credit card required to start. Cancel any time — no questions asked.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes! Every new account gets a 7-day free trial with full access to all Growth plan features. No credit card required to start. Cancel any time — no questions asked.</div></div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">Does it work with delivery apps like Talabat or Deliveroo?<span class="faq-icon">+</span></div>
+        <div class="faq-q">Does it work with delivery apps like DoorDash or Uber Eats?<span class="faq-icon">+</span></div>
         <div class="faq-a"><div class="faq-a-inner">Catchsera handles direct phone orders. It works alongside delivery apps — many restaurants use both. Pro plan customers can request custom integrations with their existing POS or delivery platforms.</div></div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
@@ -733,15 +764,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
   <div class="cta-bg"></div>
   <div class="cta-inner">
     <div class="section-tag" style="margin-bottom:20px">Get Started Today</div>
-    <h2 class="cta-title">Your AI Receptionist is<br><span class="text-accent">Ready to Answer.</span></h2>
-    <p class="cta-sub">Join hundreds of restaurants already using Catchsera to take more orders, save on staff costs, and never miss a call again. Free 14-day trial — no card needed.</p>
+    <h2 class="cta-title">Ready to Stop Missing<br><span class="text-accent">Rush-Hour Calls?</span></h2>
+    <p class="cta-desc">Join restaurants in Massachusetts and across the USA using Sera to handle every call — even when the kitchen is slammed. Book your free 7-day demo today.</p>
     <form class="cta-form" onsubmit="handleSignup(event)">
-      <input type="email" id="signup-email" placeholder="Enter your email address" required autocomplete="email">
-      <button type="submit" class="btn btn-primary">Get Started Free →</button>
+      <input type="email" placeholder="Enter your restaurant email" required>
+      <button type="submit" class="btn btn-primary">Book Free Demo &rarr;</button>
     </form>
-    <p class="cta-note">✓ 14-day free trial &nbsp;·&nbsp; ✓ No credit card &nbsp;·&nbsp; ✓ Cancel anytime</p>
+    <p style="margin-top:14px;font-size:0.8rem;color:var(--text3)">Credit card required &nbsp;&bull;&nbsp; 7-day free demo &nbsp;&bull;&nbsp; Cancel anytime</p>
   </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer>
@@ -752,7 +784,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
           <div class="footer-brand-icon">🍕</div>
           <span class="footer-brand-name">Catch<span>sera</span></span>
         </div>
-        <p class="footer-desc">AI voice ordering for restaurants and small food businesses. Never miss a phone order again.</p>
+        <p class="footer-desc">AI phone ordering for restaurants in Massachusetts, Boston & across the USA. Never miss a rush-hour call again.</p>
         <div class="footer-social">
           <a href="#" aria-label="Twitter">𝕏</a>
           <a href="#" aria-label="LinkedIn">in</a>
@@ -926,6 +958,34 @@ function showNextMsg() {
   }
 }
 setTimeout(showNextMsg, 1000);
+
+// --- THEME TOGGLE ---
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light-mode');
+  const btn = document.getElementById('themeToggle');
+  if (btn) btn.textContent = isLight ? '☀️' : '🌙';
+  localStorage.setItem('catchsera_theme', isLight ? 'light' : 'dark');
+}
+(function() {
+  if (localStorage.getItem('catchsera_theme') === 'light') {
+    document.body.classList.add('light-mode');
+    const b = document.getElementById('themeToggle');
+    if (b) b.textContent = '☀️';
+  }
+})();
+// --- ROI CALCULATOR ---
+function calcROI() {
+  const calls = parseInt(document.getElementById('roiCalls').value);
+  const aov = parseInt(document.getElementById('roiAOV').value);
+  const days = parseInt(document.getElementById('roiDays').value);
+  document.getElementById('roiCallsVal').textContent = calls + ' calls';
+  document.getElementById('roiAOVVal').textContent = '$' + aov;
+  document.getElementById('roiDaysVal').textContent = days + ' days';
+  const lost = calls * aov * days;
+  document.getElementById('roiLost').textContent = '$' + lost.toLocaleString();
+  document.getElementById('roiRecovered').textContent = '$' + Math.round(lost * 0.95).toLocaleString();
+}
+if (document.getElementById('roiCalls')) calcROI();
 </script>
 </body>
 </html>
