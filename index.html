@@ -277,8 +277,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes fadeSlideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.js-animations .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
-.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in{transition:opacity .6s,transform .6s}
+.fade-in.will-animate{opacity:0;transform:translateY(20px)}
+.fade-in.visible{opacity:1!important;transform:translateY(0)!important}
 
 /* NOTIFICATION TOAST */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--surface);border:1px solid rgba(16,185,129,.3);border-radius:var(--radius);padding:14px 20px;display:flex;align-items:center;gap:10px;font-size:14px;box-shadow:0 12px 32px rgba(0,0,0,.4);z-index:1000;transform:translateY(100px);opacity:0;transition:.4s}
@@ -859,7 +860,7 @@ function showToast(msg) {
 }
 
 // ——— INTERSECTION OBSERVER (fade-in animations) ———
-document.body.classList.add('js-animations');
+// scroll-triggered animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -868,10 +869,16 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.05, rootMargin: '100px 0px 100px 0px' });
-document.querySelectorAll('.fade-in').forEach(el => {
-  observer.observe(el);
-  const r = el.getBoundingClientRect();
-  if (r.top < window.innerHeight + 100 && r.bottom > 0) el.classList.add('visible');
+requestAnimationFrame(() => {
+  document.querySelectorAll('.fade-in').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight + 50 && r.bottom > 0) {
+      el.classList.add('visible');
+    } else {
+      el.classList.add('will-animate');
+    }
+    observer.observe(el);
+  });
 });
 
 // ——— SMOOTH STAT COUNTERS ———
