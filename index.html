@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Catchsera gives your restaurant an AI voice agent that takes phone orders 24/7 — no staff needed. Works with pizza shops, cafes, takeaways. Try free.">
+  <meta name="keywords" content="restaurant AI voice agent, AI phone ordering, restaurant ordering system, pizza shop AI, food business automation, automated phone orders, restaurant technology">
+  <meta name="author" content="Catchsera">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#10b981">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://catchsera.com/">
+  <meta property="og:title" content="Catchsera — AI Voice Agent for Restaurants">
+  <meta property="og:description" content="Never miss a phone order again. AI answers calls, takes orders, sends them to your kitchen — 24/7.">
+  <meta property="og:image" content="https://catchsera.com/og-image.jpg">
+  <meta property="og:site_name" content="Catchsera">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Catchsera — AI Voice Agent for Restaurants">
+  <meta name="twitter:description" content="Never miss a phone order again. AI answers calls 24/7.">
+  <link rel="canonical" href="https://catchsera.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Catchsera — AI Voice Ordering for Restaurants & Food Businesses</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Catchsera","url":"https://catchsera.com","description":"AI voice agent for restaurants that takes phone orders 24/7","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Free trial available"},"provider":{"@type":"Organization","name":"Catchsera","url":"https://catchsera.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does Catchsera work?","acceptedAnswer":{"@type":"Answer","text":"A customer calls your restaurant. Catchsera's AI answers, takes the full order in natural conversation, and sends it directly to your dashboard in real time."}},{"@type":"Question","name":"Do I need special hardware?","acceptedAnswer":{"@type":"Answer","text":"No. Catchsera works with any phone number. Your staff sees orders on any tablet, phone, or computer."}},{"@type":"Question","name":"What languages does it support?","acceptedAnswer":{"@type":"Answer","text":"Currently English and Arabic. More languages coming soon."}},{"@type":"Question","name":"Is there a free trial?","acceptedAnswer":{"@type":"Answer","text":"Yes — try Catchsera free for 14 days, no credit card required."}}]}</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0f1a;
+  --bg2:#0f172a;
+  --bg3:#1e293b;
+  --surface:#1e293b;
+  --surface2:#273548;
+  --border:rgba(255,255,255,0.08);
+  --border2:rgba(255,255,255,0.14);
+  --text1:#f1f5f9;
+  --text2:#94a3b8;
+  --text3:#64748b;
+  --accent:#10b981;
+  --accent2:#059669;
+  --accent3:#34d399;
+  --accent-glow:rgba(16,185,129,0.15);
+  --accent-glow2:rgba(16,185,129,0.3);
+  --warning:#f59e0b;
+  --info:#3b82f6;
+  --danger:#ef4444;
+  --radius:12px;
+  --radius-lg:20px;
+  --radius-xl:28px;
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+  --max-w:1200px;
+  --section-pad:100px 20px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text1);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{cursor:pointer;font-family:var(--font)}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--surface2);border-radius:3px}
+
+/* UTILITY */
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.text-accent{color:var(--accent)}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:var(--radius);font-size:15px;font-weight:600;transition:all .2s;border:none;line-height:1.2}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 8px 24px var(--accent-glow2)}
+.btn-outline{background:transparent;color:var(--text1);border:1px solid var(--border2)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
+.btn-lg{padding:18px 36px;font-size:17px;border-radius:14px}
+.btn-sm{padding:10px 20px;font-size:13px}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.badge-accent{background:var(--accent-glow);color:var(--accent);border:1px solid rgba(16,185,129,.2)}
+
+/* SECTION HEADERS */
+.section-tag{display:inline-block;padding:6px 16px;background:var(--accent-glow);color:var(--accent);border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:16px;border:1px solid rgba(16,185,129,.2)}
+.section-title{font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px}
+.section-sub{font-size:18px;color:var(--text2);max-width:600px;line-height:1.7}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .3s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(10,15,26,.92);backdrop-filter:blur(20px);border-bottom-color:var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px;background:var(--accent);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.nav-logo-text{font-size:20px;font-weight:800;letter-spacing:-0.3px}
+.nav-logo-text span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nav-links a{padding:8px 16px;border-radius:8px;font-size:14px;font-weight:500;color:var(--text2);transition:.2s}
+.nav-links a:hover{color:var(--text1);background:var(--surface)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;background:none;border:none;cursor:pointer}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text1);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg2);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:22px;font-weight:700;color:var(--text1);padding:12px 24px}
+.mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--text1);font-size:28px;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-gradient{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:700px;background:radial-gradient(ellipse,rgba(16,185,129,.12) 0%,transparent 70%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:50px 50px;opacity:.4}
+.hero-content{position:relative;z-index:1;max-width:var(--max-w);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-left{}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--accent-glow);border:1px solid rgba(16,185,129,.25);border-radius:20px;font-size:13px;font-weight:600;color:var(--accent);margin-bottom:24px}
+.hero-eyebrow-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+.hero-title{font-size:clamp(36px,5.5vw,62px);font-weight:900;line-height:1.08;letter-spacing:-1.5px;margin-bottom:24px}
+.hero-title .line2{color:var(--accent)}
+.hero-title .line3{color:var(--text2);font-weight:600;font-size:clamp(22px,3.5vw,38px)}
+.hero-desc{font-size:18px;color:var(--text2);line-height:1.75;max-width:480px;margin-bottom:36px}
+.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:44px}
+.hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero-trust-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text3)}
+.hero-trust-item svg{color:var(--accent);flex-shrink:0}
+.hero-right{position:relative}
+.hero-phone{position:relative;z-index:1}
+.phone-mockup{background:var(--bg3);border:1px solid var(--border2);border-radius:24px;padding:28px;box-shadow:0 32px 80px rgba(0,0,0,.5),0 0 0 1px rgba(16,185,129,.1),0 0 60px var(--accent-glow);max-width:360px;margin:0 auto;animation:float 4s ease-in-out infinite}
+.phone-top{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.phone-top-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.phone-top-info{}
+.phone-top-name{font-weight:700;font-size:14px}
+.phone-top-status{font-size:11px;color:var(--accent);display:flex;align-items:center;gap:4px}
+.phone-top-status::before{content:'';display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 1.5s infinite}
+.chat-messages{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.msg{padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.5;max-width:85%;animation:fadeSlideUp .4s ease forwards}
+.msg-ai{background:var(--surface);color:var(--text1);border-bottom-left-radius:4px;align-self:flex-start}
+.msg-user{background:var(--accent);color:#fff;border-bottom-right-radius:4px;align-self:flex-end;text-align:right}
+.msg-time{font-size:10px;opacity:.6;margin-top:3px}
+.phone-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px}
+.phone-stat{background:var(--surface2);border-radius:10px;padding:10px;text-align:center}
+.phone-stat-val{font-size:16px;font-weight:800;color:var(--accent)}
+.phone-stat-label{font-size:10px;color:var(--text3);margin-top:2px}
+.hero-float-1{position:absolute;top:-20px;right:-30px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 24px rgba(0,0,0,.3);animation:float 3s 1s ease-in-out infinite;z-index:2}
+.hero-float-2{position:absolute;bottom:20px;left:-20px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 24px rgba(0,0,0,.3);animation:float 3.5s .5s ease-in-out infinite;z-index:2}
+.float-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.float-icon-green{background:rgba(16,185,129,.15)}
+.float-icon-orange{background:rgba(245,158,11,.15)}
+.float-text-main{font-size:13px;font-weight:700}
+.float-text-sub{font-size:11px;color:var(--text3)}
+
+/* LOGOS / SOCIAL PROOF BAR */
+.logos-bar{padding:40px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
+.logos-inner{max-width:var(--max-w);margin:0 auto;padding:0 24px;display:flex;flex-direction:column;align-items:center;gap:24px}
+.logos-label{font-size:13px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:.8px}
+.logos-list{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap;opacity:.5}
+.logos-list span{font-size:15px;font-weight:700;color:var(--text2);letter-spacing:.5px}
+
+/* HOW IT WORKS */
+.steps-section{padding:var(--section-pad);background:var(--bg)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:60px}
+.step-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;position:relative;transition:.3s;overflow:hidden}
+.step-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-glow),transparent);opacity:0;transition:.3s}
+.step-card:hover::before{opacity:1}
+.step-card:hover{border-color:rgba(16,185,129,.3);transform:translateY(-4px)}
+.step-num{width:48px;height:48px;background:var(--accent);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;margin-bottom:20px;position:relative;z-index:1}
+.step-icon{font-size:28px;margin-bottom:16px}
+.step-title{font-size:20px;font-weight:700;margin-bottom:10px;position:relative;z-index:1}
+.step-desc{font-size:15px;color:var(--text2);line-height:1.7;position:relative;z-index:1}
+.step-connector{display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:24px;margin-top:24px}
+
+/* FEATURES */
+.features-section{padding:var(--section-pad);background:var(--bg2)}
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:60px}
+.feature-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;display:flex;gap:20px;transition:.3s}
+.feature-card:hover{border-color:rgba(16,185,129,.25);background:var(--surface2);transform:translateY(-2px)}
+.feature-icon{width:52px;height:52px;background:var(--accent-glow);border:1px solid rgba(16,185,129,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.feature-body{}
+.feature-title{font-size:17px;font-weight:700;margin-bottom:8px}
+.feature-desc{font-size:14px;color:var(--text2);line-height:1.65}
+
+/* STATS */
+.stats-section{padding:80px 0;background:linear-gradient(135deg,var(--bg2),var(--bg3))}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;background:var(--border)}
+.stat-item{background:var(--bg2);padding:40px 32px;text-align:center}
+.stat-num{font-size:clamp(36px,5vw,56px);font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
+.stat-label{font-size:14px;color:var(--text2);font-weight:500}
+
+/* TESTIMONIALS */
+.testimonials-section{padding:var(--section-pad);background:var(--bg)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+.testimonial-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:.3s;position:relative}
+.testimonial-card:hover{border-color:rgba(16,185,129,.25);transform:translateY(-3px)}
+.testimonial-stars{color:var(--warning);font-size:14px;margin-bottom:16px;letter-spacing:2px}
+.testimonial-text{font-size:15px;color:var(--text2);line-height:1.75;margin-bottom:20px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0}
+.testimonial-name{font-size:14px;font-weight:700}
+.testimonial-biz{font-size:12px;color:var(--text3)}
+.testimonial-quote{position:absolute;top:20px;right:24px;font-size:48px;color:var(--accent);opacity:.1;font-family:Georgia,serif;line-height:1}
+
+/* PRICING */
+.pricing-section{padding:var(--section-pad);background:var(--bg2)}
+.pricing-toggle{display:flex;align-items:center;justify-content:center;gap:14px;margin:32px 0 48px;font-size:14px;color:var(--text2)}
+.toggle-switch{position:relative;width:48px;height:26px;background:var(--surface2);border-radius:13px;cursor:pointer;transition:.3s;border:1px solid var(--border2)}
+.toggle-switch.on{background:var(--accent)}
+.toggle-knob{position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:.3s}
+.toggle-switch.on .toggle-knob{transform:translateX(22px)}
+.save-badge{background:var(--accent-glow);color:var(--accent);padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pricing-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-xl);padding:36px;transition:.3s;position:relative}
+.pricing-card.featured{background:linear-gradient(180deg,rgba(16,185,129,.08),var(--bg3));border-color:rgba(16,185,129,.4);transform:scale(1.03)}
+.pricing-card.featured::before{content:'Most Popular';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:4px 16px;border-radius:0 0 10px 10px;letter-spacing:.5px;text-transform:uppercase}
+.pricing-card:hover:not(.featured){border-color:rgba(16,185,129,.2);transform:translateY(-4px)}
+.pricing-name{font-size:15px;font-weight:700;color:var(--text2);margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px}
+.pricing-price{margin-bottom:8px}
+.pricing-amount{font-size:48px;font-weight:900;line-height:1;letter-spacing:-2px}
+.pricing-amount sup{font-size:22px;vertical-align:top;margin-top:10px;font-weight:600}
+.pricing-amount.free{color:var(--accent)}
+.pricing-period{font-size:14px;color:var(--text3)}
+.pricing-desc{font-size:14px;color:var(--text2);margin:16px 0 24px;line-height:1.6}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.pricing-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text2)}
+.pricing-features li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px}
+.pricing-features li.off{color:var(--text3)}
+.pricing-features li.off::before{content:'—';color:var(--text3)}
+.pricing-cta{width:100%}
+
+/* FAQ */
+.faq-section{padding:var(--section-pad);background:var(--bg)}
+.faq-list{max-width:760px;margin:48px auto 0;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:.3s}
+.faq-item.open{border-color:rgba(16,185,129,.25)}
+.faq-q{padding:22px 24px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-size:16px;font-weight:600;gap:16px;user-select:none}
+.faq-q:hover{color:var(--accent)}
+.faq-icon{font-size:20px;color:var(--text3);flex-shrink:0;transition:.3s;font-weight:300}
+.faq-item.open .faq-icon{transform:rotate(45deg);color:var(--accent)}
+.faq-a{max-height:0;overflow:hidden;transition:.3s;font-size:15px;color:var(--text2);line-height:1.75}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{padding:0 24px 22px}
+
+/* CTA SECTION */
+.cta-section{padding:100px 0;background:var(--bg2);position:relative;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(16,185,129,.1) 0%,transparent 65%);pointer-events:none}
+.cta-inner{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:0 24px;text-align:center}
+.cta-title{font-size:clamp(32px,5vw,52px);font-weight:900;line-height:1.1;letter-spacing:-1px;margin-bottom:20px}
+.cta-sub{font-size:18px;color:var(--text2);margin-bottom:40px;line-height:1.65}
+.cta-form{display:flex;gap:12px;max-width:480px;margin:0 auto 20px;flex-wrap:wrap}
+.cta-form input{flex:1;min-width:200px;padding:16px 20px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius);color:var(--text1);font-size:15px;font-family:var(--font);outline:none;transition:.2s}
+.cta-form input::placeholder{color:var(--text3)}
+.cta-form input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.cta-note{font-size:13px;color:var(--text3)}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32px}
+.footer-inner{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.footer-brand-icon{width:36px;height:36px;background:var(--accent);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.footer-brand-name{font-size:18px;font-weight:800;letter-spacing:-0.3px}
+.footer-brand-name span{color:var(--accent)}
+.footer-desc{font-size:14px;color:var(--text3);line-height:1.65;max-width:280px;margin-bottom:20px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;transition:.2s}
+.footer-social a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
+.footer-col-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:14px;color:var(--text2);transition:.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:13px;color:var(--text3)}
+.footer-legal{display:flex;gap:16px}
+.footer-legal a{font-size:13px;color:var(--text3);transition:.2s}
+.footer-legal a:hover{color:var(--text2)}
+
+/* ANIMATIONS */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* NOTIFICATION TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--surface);border:1px solid rgba(16,185,129,.3);border-radius:var(--radius);padding:14px 20px;display:flex;align-items:center;gap:10px;font-size:14px;box-shadow:0 12px 32px rgba(0,0,0,.4);z-index:1000;transform:translateY(100px);opacity:0;transition:.4s}
+.toast.show{transform:translateY(0);opacity:1}
+.toast-icon{color:var(--accent);font-size:18px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr;text-align:center}
+  .hero-desc{margin:0 auto 36px}
+  .hero-actions{justify-content:center}
+  .hero-trust{justify-content:center}
+  .hero-right{display:none}
+  .steps-grid{grid-template-columns:1fr}
+  .features-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .testimonials-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .pricing-card.featured{transform:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .nav-cta .btn-outline{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:640px){
+  :root{--section-pad:70px 20px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .cta-form{flex-direction:column}
+  .cta-form input,.cta-form button{width:100%}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Catchsera Home">
+      <div class="nav-logo-icon">🍕</div>
+      <span class="nav-logo-text">Catch<span>sera</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://orders.catchsera.com" class="btn btn-outline btn-sm">Sign In</a>
+      <a href="#get-started" class="btn btn-primary btn-sm">Start Free Trial</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()" aria-label="Close">&times;</button>
+  <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
+  <a href="#features" onclick="toggleMenu()">Features</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="https://orders.catchsera.com" onclick="toggleMenu()">Sign In</a>
+  <a href="#get-started" class="btn btn-primary" onclick="toggleMenu()">Start Free Trial</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        AI-Powered · Available 24/7 · No Hardware
+      </div>
+      <h1 class="hero-title">
+        Your Restaurant,<br>
+        <span class="line2">Always Answering.</span><br>
+        <span class="line3">Never Miss an Order.</span>
+      </h1>
+      <p class="hero-desc">
+        Catchsera's AI voice agent answers your phone, takes orders in natural conversation, and sends them straight to your kitchen — even when you're busy, closed, or understaffed.
+      </p>
+      <div class="hero-actions">
+        <a href="#get-started" class="btn btn-primary btn-lg">🚀 Start Free — 14 Days</a>
+        <a href="#how-it-works" class="btn btn-outline btn-lg">See How It Works</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          No credit card needed
+        </div>
+        <div class="hero-trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Setup in under 10 minutes
+        </div>
+        <div class="hero-trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Works with any phone number
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-float-1">
+        <div class="float-icon float-icon-green">📞</div>
+        <div>
+          <div class="float-text-main">New Order — Table 4</div>
+          <div class="float-text-sub">Just now · Pepperoni Large + 2 Cokes</div>
+        </div>
+      </div>
+      <div class="phone-mockup">
+        <div class="phone-top">
+          <div class="phone-top-icon">🤖</div>
+          <div class="phone-top-info">
+            <div class="phone-top-name">Sara — AI Order Agent</div>
+            <div class="phone-top-status">Live Call in Progress</div>
+          </div>
+        </div>
+        <div class="chat-messages">
+          <div class="msg msg-ai" style="animation-delay:.1s">Hello! Thanks for calling Tony's Pizza. What would you like to order today? 🍕<div class="msg-time">12:31 PM</div></div>
+          <div class="msg msg-user" style="animation-delay:.3s">Hi, I want a large pepperoni and garlic bread<div class="msg-time">12:31 PM</div></div>
+          <div class="msg msg-ai" style="animation-delay:.5s">Perfect! Large pepperoni + garlic bread. Would you like drinks with that?<div class="msg-time">12:32 PM</div></div>
+          <div class="msg msg-user" style="animation-delay:.7s">Yes, 2 Cokes please<div class="msg-time">12:32 PM</div></div>
+          <div class="msg msg-ai" style="animation-delay:.9s">Got it! Order confirmed ✅ Ready in ~20 min. Anything else?<div class="msg-time">12:32 PM</div></div>
+        </div>
+        <div class="phone-stats">
+          <div class="phone-stat"><div class="phone-stat-val">2.3s</div><div class="phone-stat-label">Response Time</div></div>
+          <div class="phone-stat"><div class="phone-stat-val">98%</div><div class="phone-stat-label">Accuracy</div></div>
+          <div class="phone-stat"><div class="phone-stat-val">24/7</div><div class="phone-stat-label">Available</div></div>
+        </div>
+      </div>
+      <div class="hero-float-2">
+        <div class="float-icon float-icon-orange">💰</div>
+        <div>
+          <div class="float-text-main">+$847 saved this week</div>
+          <div class="float-text-sub">vs. phone staff cost</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS BAR -->
+<div class="logos-bar">
+  <div class="logos-inner">
+    <span class="logos-label">Trusted by food businesses in the UAE, US & UK</span>
+    <div class="logos-list">
+      <span>🍕 Pizza Shops</span>
+      <span>🍔 Burger Joints</span>
+      <span>🥙 Shawarma Stands</span>
+      <span>☕ Cafes</span>
+      <span>🍜 Noodle Houses</span>
+      <span>🍱 Delivery Kitchens</span>
+      <span>🥗 Salad Bars</span>
+    </div>
+  </div>
+</div>
+<!-- HOW IT WORKS -->
+<section class="steps-section" id="how-it-works">
+  <div class="container text-center">
+    <span class="section-tag">How It Works</span>
+    <h2 class="section-title">From Phone Call to Kitchen<br>in <span class="text-accent">Seconds</span></h2>
+    <p class="section-sub" style="margin:0 auto">No complicated setup. No training. Catchsera plugs into your restaurant in minutes and starts taking orders immediately.</p>
+    <div class="steps-grid fade-in">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-icon">📞</div>
+        <h3 class="step-title">Customer Calls Your Number</h3>
+        <p class="step-desc">Your existing phone number. No new hardware, no SIM card. Sara AI picks up every call within 2 rings, day or night.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-icon">🗣️</div>
+        <h3 class="step-title">AI Takes the Full Order</h3>
+        <p class="step-desc">Sara has a natural conversation — asks about items, sizes, extras, allergies, and delivery or pickup. Just like a real staff member.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-icon">📋</div>
+        <h3 class="step-title">Order Lands on Your Dashboard</h3>
+        <p class="step-desc">The complete order appears on your tablet or screen in real time with a beep alert. Your team confirms, prepares, and marks it ready — no phone calls needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Features</span>
+      <h2 class="section-title">Everything Your Restaurant Needs</h2>
+      <p class="section-sub" style="margin:0 auto">Built specifically for small food businesses. Simple to use, powerful enough to grow with you.</p>
+    </div>
+    <div class="features-grid fade-in">
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-body">
+          <h3 class="feature-title">Natural Voice AI (Sara)</h3>
+          <p class="feature-desc">Sara doesn't sound like a robot. She converses naturally, handles modifications, and manages complex multi-item orders with ease — in English and Arabic.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-body">
+          <h3 class="feature-title">Real-Time Order Dashboard</h3>
+          <p class="feature-desc">Every order appears on your screen the moment the call ends. New order alert, full item list, status tracking from New → Confirmed → Ready → Done.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🖨️</div>
+        <div class="feature-body">
+          <h3 class="feature-title">Auto Receipt Printing</h3>
+          <p class="feature-desc">Prints kitchen and customer copies automatically on confirmation. Works with any USB or WiFi thermal printer. Configurable copies per order.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-body">
+          <h3 class="feature-title">Order History & Analytics</h3>
+          <p class="feature-desc">See all past orders, filter by date, search by customer or item. Understand your busiest hours and most popular dishes.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔔</div>
+        <div class="feature-body">
+          <h3 class="feature-title">Smart Alerts & Sound</h3>
+          <p class="feature-desc">Loud beep alerts when new orders arrive, even if the screen is locked. Adjustable volume. Works while you sleep — or cook.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <div class="feature-body">
+          <h3 class="feature-title">Works on Any Device</h3>
+          <p class="feature-desc">No app to download. Open it in any browser on phone, tablet, or PC. Designed for kitchen tablets with a clean, large-button interface.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌙</div>
+        <div class="feature-body">
+          <h3 class="feature-title">24/7 — Including Holidays</h3>
+          <p class="feature-desc">Sara never sleeps, never calls in sick, and never misses a call. She covers your busiest Friday nights and your quietest Sunday mornings equally well.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-body">
+          <h3 class="feature-title">Secure & Private</h3>
+          <p class="feature-desc">Your data stays yours. Enterprise-grade security, encrypted data at rest and in transit. GDPR-ready. No third party sells your customer information.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section fade-in">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num" data-count="98">0%</div>
+        <div class="stat-label">Order Accuracy Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="2">0s</div>
+        <div class="stat-label">Average AI Response Time</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="24">0/7</div>
+        <div class="stat-label">Hours Always Available</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="40">0%</div>
+        <div class="stat-label">Average Staff Cost Saved</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="container text-center">
+    <span class="section-tag">Customer Stories</span>
+    <h2 class="section-title">Restaurants Love Catchsera</h2>
+    <p class="section-sub" style="margin:0 auto">Real results from real food businesses just like yours.</p>
+    <div class="testimonials-grid fade-in">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"We were losing so many orders during rush hour because we couldn't answer the phone and cook at the same time. Catchsera solved that overnight. Now every call is answered."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Ahmed Al-Rashidi</div>
+            <div class="testimonial-biz">Tony's Pizza — Dubai, UAE</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The AI sounds so natural that customers don't even realize they're talking to a bot. Orders come through perfectly with all the modifications and no mistakes."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <div class="testimonial-name">Maria Santos</div>
+            <div class="testimonial-biz">Casa Burger — London, UK</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I run a small shawarma shop. I can't afford a receptionist. Catchsera is like having a full-time employee for a fraction of the cost. Incredible value."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">K</div>
+          <div>
+            <div class="testimonial-name">Khalid Mansoor</div>
+            <div class="testimonial-biz">Al-Sham Kitchen — Sharjah, UAE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container text-center">
+    <span class="section-tag">Pricing</span>
+    <h2 class="section-title">Simple, Honest Pricing</h2>
+    <p class="section-sub" style="margin:0 auto">Start free. Upgrade as you grow. Cancel anytime — no lock-ins.</p>
+    <div class="pricing-toggle">
+      <span>Monthly</span>
+      <div class="toggle-switch" id="billingToggle" onclick="toggleBilling()" role="switch" aria-checked="false">
+        <div class="toggle-knob"></div>
+      </div>
+      <span>Annual <span class="save-badge">Save 20%</span></span>
+    </div>
+    <div class="pricing-grid fade-in">
+      <div class="pricing-card">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-price">
+          <div class="pricing-amount free" id="price-starter">Free</div>
+          <div class="pricing-period">14-day full trial · No card needed</div>
+        </div>
+        <p class="pricing-desc">Perfect for trying Catchsera risk-free with your restaurant.</p>
+        <ul class="pricing-features">
+          <li>AI voice agent (Sara)</li>
+          <li>Real-time order dashboard</li>
+          <li>Up to 50 orders/month</li>
+          <li>1 phone number</li>
+          <li>Email support</li>
+          <li class="off">Auto receipt printing</li>
+          <li class="off">Analytics & history</li>
+          <li class="off">Priority support</li>
+        </ul>
+        <a href="#get-started" class="btn btn-outline pricing-cta">Start Free Trial</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-name">Growth</div>
+        <div class="pricing-price">
+          <div class="pricing-amount" id="price-growth"><sup>$</sup><span id="growth-num">49</span></div>
+          <div class="pricing-period" id="period-growth">per month, billed monthly</div>
+        </div>
+        <p class="pricing-desc">For active restaurants taking daily phone orders.</p>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Unlimited orders</li>
+          <li>Auto receipt printing</li>
+          <li>Order history & analytics</li>
+          <li>2 staff accounts</li>
+          <li>Priority email + chat support</li>
+          <li>Custom AI menu knowledge</li>
+          <li class="off">Multi-location</li>
+        </ul>
+        <a href="#get-started" class="btn btn-primary pricing-cta">Start Free Trial</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Pro</div>
+        <div class="pricing-price">
+          <div class="pricing-amount" id="price-pro"><sup>$</sup><span id="pro-num">99</span></div>
+          <div class="pricing-period" id="period-pro">per month, billed monthly</div>
+        </div>
+        <p class="pricing-desc">For growing chains and multi-location food businesses.</p>
+        <ul class="pricing-features">
+          <li>Everything in Growth</li>
+          <li>Up to 5 locations</li>
+          <li>Unlimited staff accounts</li>
+          <li>Advanced analytics</li>
+          <li>Custom integrations (POS, n8n)</li>
+          <li>Dedicated account manager</li>
+          <li>White-label option</li>
+          <li>Phone + chat support 24/7</li>
+        </ul>
+        <a href="#get-started" class="btn btn-outline pricing-cta">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container text-center">
+    <span class="section-tag">FAQ</span>
+    <h2 class="section-title">Common Questions</h2>
+    <p class="section-sub" style="margin:0 auto">Everything you want to know before getting started.</p>
+    <div class="faq-list fade-in">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How does Catchsera work exactly?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">A customer calls your restaurant's phone number. Catchsera's AI (Sara) answers the call, takes the full order in natural voice conversation, confirms it with the customer, and instantly sends the order to your dashboard. Your team sees it in real time and starts preparing.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Do I need special hardware or equipment?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. Catchsera works with your existing phone number. Your staff views orders on any device with a browser — tablet, phone, laptop, or desktop PC. For receipt printing, any USB or WiFi thermal printer works.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What languages does Sara speak?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sara currently supports English and Arabic. More languages are on the roadmap. She can also handle mixed-language conversations naturally.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What if a customer has a complex or unusual order?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sara is trained on your specific menu and handles modifications, substitutions, allergies, and extras. For truly complex situations, she can gracefully hand off to a human staff member if you configure that option.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How long does setup take?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Most restaurants are live in under 10 minutes. You provide your menu, phone number, and business hours. We handle the AI training and phone integration. No IT team needed.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I try it for free?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes! Every new account gets a 14-day free trial with full access to all Growth plan features. No credit card required to start. Cancel any time — no questions asked.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Does it work with delivery apps like Talabat or Deliveroo?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Catchsera handles direct phone orders. It works alongside delivery apps — many restaurants use both. Pro plan customers can request custom integrations with their existing POS or delivery platforms.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is my data secure?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. All data is encrypted in transit and at rest. We use enterprise-grade cloud infrastructure. Your customer data is never sold or shared with third parties. We are GDPR-compliant.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section" id="get-started">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <div class="section-tag" style="margin-bottom:20px">Get Started Today</div>
+    <h2 class="cta-title">Your AI Receptionist is<br><span class="text-accent">Ready to Answer.</span></h2>
+    <p class="cta-sub">Join hundreds of restaurants already using Catchsera to take more orders, save on staff costs, and never miss a call again. Free 14-day trial — no card needed.</p>
+    <form class="cta-form" onsubmit="handleSignup(event)">
+      <input type="email" id="signup-email" placeholder="Enter your email address" required autocomplete="email">
+      <button type="submit" class="btn btn-primary">Get Started Free →</button>
+    </form>
+    <p class="cta-note">✓ 14-day free trial &nbsp;·&nbsp; ✓ No credit card &nbsp;·&nbsp; ✓ Cancel anytime</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <div class="footer-brand-icon">🍕</div>
+          <span class="footer-brand-name">Catch<span>sera</span></span>
+        </div>
+        <p class="footer-desc">AI voice ordering for restaurants and small food businesses. Never miss a phone order again.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">📷</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Product</div>
+        <div class="footer-links">
+          <a href="#how-it-works">How It Works</a>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="https://orders.catchsera.com">Dashboard Login</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <div class="footer-links">
+          <a href="#faq">FAQ</a>
+          <a href="#">Help Center</a>
+          <a href="mailto:hello@catchsera.com">hello@catchsera.com</a>
+          <a href="#">Status</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Catchsera. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon">✓</span>
+  <span id="toast-msg">You're on the list! We'll be in touch.</span>
+</div>
+<script>
+// ——— NAV SCROLL ———
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// ——— MOBILE MENU ———
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+}
+
+// ——— FAQ ———
+function toggleFaq(item) {
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ——— PRICING TOGGLE ———
+let isAnnual = false;
+function toggleBilling() {
+  isAnnual = !isAnnual;
+  const toggle = document.getElementById('billingToggle');
+  toggle.classList.toggle('on', isAnnual);
+  toggle.setAttribute('aria-checked', isAnnual);
+  document.getElementById('growth-num').textContent = isAnnual ? '39' : '49';
+  document.getElementById('pro-num').textContent = isAnnual ? '79' : '99';
+  document.getElementById('period-growth').textContent = isAnnual ? 'per month, billed annually' : 'per month, billed monthly';
+  document.getElementById('period-pro').textContent = isAnnual ? 'per month, billed annually' : 'per month, billed monthly';
+}
+
+// ——— SIGN UP FORM ———
+function handleSignup(e) {
+  e.preventDefault();
+  const email = document.getElementById('signup-email').value;
+  if (!email) return;
+  // Send to Supabase / n8n webhook
+  fetch('https://n8n.catchsera.com/webhook/landing-signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, source: 'landing-page', date: new Date().toISOString() })
+  }).catch(() => {}); // fire and forget
+  document.getElementById('signup-email').value = '';
+  showToast('🎉 You're in! Check your inbox shortly.');
+}
+
+// ——— TOAST ———
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+// ——— INTERSECTION OBSERVER (fade-in animations) ———
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ——— SMOOTH STAT COUNTERS ———
+function animateCounters() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseInt(el.dataset.count);
+    const suffix = el.textContent.replace(/[0-9]/g, '');
+    let current = 0;
+    const step = target / 60;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = Math.floor(current) + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 20);
+  });
+}
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { animateCounters(); statsObserver.disconnect(); }
+  });
+}, { threshold: 0.3 });
+const statsSection = document.querySelector('.stats-section');
+if (statsSection) statsObserver.observe(statsSection);
+
+// ——— CHAT ANIMATION ———
+let msgIndex = 0;
+const msgs = document.querySelectorAll('.chat-messages .msg');
+msgs.forEach(m => m.style.opacity = '0');
+function showNextMsg() {
+  if (msgIndex < msgs.length) {
+    msgs[msgIndex].style.opacity = '1';
+    msgs[msgIndex].style.animation = 'fadeSlideUp .4s ease forwards';
+    msgIndex++;
+    setTimeout(showNextMsg, 900);
+  } else {
+    setTimeout(() => {
+      msgs.forEach(m => { m.style.opacity = '0'; m.style.animation = 'none'; });
+      msgIndex = 0;
+      setTimeout(showNextMsg, 800);
+    }, 3500);
+  }
+}
+setTimeout(showNextMsg, 1000);
+</script>
+</body>
+</html>
